@@ -1,7 +1,47 @@
 // ===================================
 // WEBKLART - PREMIUM JAVASCRIPT
 // Interactive & Smooth Animations
+// Dark Mode + 3D Effects
 // ===================================
+
+// --- DARK MODE TOGGLE ---
+const darkModeToggle = document.getElementById('darkModeToggle');
+const htmlElement = document.documentElement;
+
+function setTheme(theme) {
+    if (theme === 'dark') {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// Initialize theme (already handled by inline script in head, but ensure toggle state is correct)
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        const isDark = htmlElement.classList.contains('dark');
+        setTheme(isDark ? 'light' : 'dark');
+
+        const spinClass = 'animate-spin-once';
+        const icons = darkModeToggle.querySelectorAll('.sun-icon, .moon-icon');
+        icons.forEach((icon) => {
+            icon.classList.remove(spinClass);
+            void icon.offsetWidth;
+            icon.classList.add(spinClass);
+        });
+        setTimeout(() => {
+            icons.forEach((icon) => icon.classList.remove(spinClass));
+        }, 750);
+        
+        // Subtle scale feedback
+        darkModeToggle.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            darkModeToggle.style.transform = '';
+        }, 200);
+    });
+}
 
 // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -230,7 +270,7 @@ function showErrorMessage(message) {
     }, 3500);
 }
 
-// --- SMOOTH HOVER EFFECTS FOR CARDS ---
+// --- SUBTLE HOVER EFFECTS FOR CARDS (Gentle 3D Tilt) ---
 const cards = document.querySelectorAll('.service-card, .project-card');
 
 cards.forEach(card => {
@@ -242,12 +282,13 @@ cards.forEach(card => {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+        // Gentle tilt — divided by 30 for subtlety
+        const rotateX = (y - centerY) / 30;
+        const rotateY = (centerX - x) / 30;
 
         // Only apply on desktop
         if (window.innerWidth > 768) {
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
         }
     });
 
@@ -256,7 +297,7 @@ cards.forEach(card => {
     });
 });
 
-// --- ADD CLICK RIPPLE EFFECT TO BUTTONS ---
+// --- ADD CLICK RIPPLE EFFECT TO BUTTONS (subtle) ---
 const buttons = document.querySelectorAll('.cta-button, .submit-btn');
 
 buttons.forEach(button => {
