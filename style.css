@@ -1,5 +1,5 @@
 /* ===================================
-   WEBKLAR - PREMIUM WEB DESIGN
+   WEBKLART - PREMIUM WEB DESIGN
    Modern & Professional Styling
    =================================== */
 
@@ -102,7 +102,7 @@ nav {
 }
 
 .logo img {
-    height: 70px;
+    height: 85px;
     width: auto;
     transition: all 0.3s ease;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
@@ -749,7 +749,7 @@ footer p {
     }
 
     .logo img {
-        height: 55px;
+        height: 65px;
     }
 
     .cta-button {

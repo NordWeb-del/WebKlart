@@ -1,5 +1,5 @@
 // ===================================
-// WEBKLAR - PREMIUM JAVASCRIPT
+// WEBKLART - PREMIUM JAVASCRIPT
 // Interactive & Smooth Animations
 // ===================================
 
@@ -348,7 +348,7 @@ if (scrollTopBtn) {
 
 // --- CONSOLE BRANDING ---
 console.log(
-    '%c🚀 WebKlar ',
+    '%c🚀 WebKlart ',
     'background: linear-gradient(135deg, #5B8DBE 0%, #4A7AA8 100%); color: white; padding: 12px 20px; border-radius: 8px; font-size: 16px; font-weight: bold;'
 );
 console.log(
@@ -367,4 +367,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Log initialization
-console.log('✅ WebKlar Premium scripts initialized');
+console.log('✅ WebKlart Premium scripts initialized');
