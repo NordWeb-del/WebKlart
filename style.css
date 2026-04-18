@@ -508,12 +508,42 @@ nav {
     position: relative;
 }
 
+.portfolio-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.portfolio-category {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: 1fr;
     gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 /* --- PREMIUM PROJECT CARDS --- */
@@ -550,13 +580,17 @@ nav {
 }
 
 .project-preview {
-    height: 220px;
+    height: 180px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
+}
+
+.barberq-card .project-preview {
+    height: 260px;
 }
 
 .project-img {
@@ -807,6 +841,11 @@ footer p {
     .portfolio-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .portfolio-categories {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 
     .why-grid {
@@ -1336,6 +1375,10 @@ footer p {
 /* --- Portfolio section dark mode --- */
 .dark .portfolio {
     background-color: #1e293b;
+}
+
+.dark .category-title {
+    color: #f1f5f9;
 }
 
 .dark .project-card {
